@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exhange Rates!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  </head>
+  <section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Exchange Rates
+      </h1>
+      <h2 class="subtitle">
+        Get Best Rates!
+      </h2>
+    </div>
+  </div>
+</section>
+<body>
+    <section class="section">
+        <div class="container">
+            <h2 class="subtitle">
+              Rates for TRY based
+            </h2>
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="date" type="date" min='2017-01-01' max={{ current_date }}  placeholder="Date">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info">
+                                    GET
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                {% if data %}
+                   <tbody>
+                     <tr>
+                      <td>USD</td>
+                      <td> {{ data[0] }}</td>
+                     </tr>
+                     <tr>
+                      <td>EUR</td>
+                      <td> {{ data[1] }} </td>
+                     </tr>
+                     <tr>
+                         <td>Exchange Rates Announced on {{ date }}</td>
+                     </tr>
+                   </tbody>
+                {% endif %}
+            </table>
+        </div>
+    </section>
+</body>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Exchange</strong> by Can Taskin
+             </p>
+        </div>
+    </footer>
+</html>
